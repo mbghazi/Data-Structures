@@ -1,7 +1,3 @@
-//Muhammad Ghazi
-//4/3/19
-//BFS DFS
-//Dr. Huang
 
 #include "graph.h"
 #include <vector>
@@ -100,20 +96,20 @@ void graph::dfs(Node& node)
 	node.visited = count;
 	cout << node.name << ", ";
 	for (int i = 0; i < node.edges.size(); i++)
-	if (vertices[node.edges[i] - 'a'].visited == 0)
-		dfs(vertices[node.edges[i] - 'a']);
+		if (vertices[node.edges[i] - 'a'].visited == 0)
+			dfs(vertices[node.edges[i] - 'a']);
 }
 
 
 void graph::bfs(Node& node)
 {
 	count++;
-	if (node.visited == 0){
+	if (node.visited == 0) {
 		node.visited = count;
 		queue.push_back(node);
 	}
-	for (int j = 0; j < node.edges.size(); j++){
-		if (vertices[node.edges[j] - 'a'].visited == 0){
+	for (int j = 0; j < node.edges.size(); j++) {
+		if (vertices[node.edges[j] - 'a'].visited == 0) {
 			vertices[node.edges[j] - 'a'].visited = count;
 			queue.push_back(vertices[node.edges[j] - 'a']);
 		}
@@ -124,5 +120,3 @@ void graph::bfs(Node& node)
 	if (queue.size()>0)
 		bfs(queue.at(0));
 };
-
-
